@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:bitcointicker/price_screen.dart';
 const List<String> currenciesList = [
   'AUD',
   'BRL',
@@ -31,15 +32,16 @@ const List<String> cryptoList = [
 ];
 
 const coinAPIURL = 'https://rest.coinapi.io/v1/exchangerate';
-const apiKey = 'YOUR-API-KEY-HERE';
+const apiKey = 'CB2DDE46-D32C-4791-92E0-27D094AAEBD3';
 
 class CoinData {
 
   Future getCoinData() async {
+    String cur=currenciesList[]
 
     String requestURL = '$coinAPIURL/BTC/USD?apikey=$apiKey';
 
-    http.Response response = await http.get(Uri.base);
+    http.Response response = await http.get(Uri.parse(requestURL));
 
 
     if (response.statusCode == 200) {
